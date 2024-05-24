@@ -40,7 +40,7 @@ class Game{
 
 }
 
-public class Task_2{
+public class oibsip_Task_2{
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         while(true) {
