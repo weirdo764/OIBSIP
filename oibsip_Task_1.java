@@ -117,7 +117,7 @@ class OnlineReservationSystem{
 
 }
 
-public class Task_1 {
+public class oibsip_Task_1 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         OnlineReservationSystem p1 = new OnlineReservationSystem();
