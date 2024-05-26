@@ -159,7 +159,7 @@ class OnlineExamination{
 
 }
 
-public class oibsip_task_4{
+public class oibsip_Task_4{
     public static void main(String[] args) {
         int choice;
         Scanner sc = new Scanner(System.in);
