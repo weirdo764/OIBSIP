@@ -1,6 +1,6 @@
 import java.util.*;
 class OnlineExamination{
-    static int EXAM_DURATION_SECONDS = 30;
+    static int EXAM_DURATION_SECONDS = 15;
     int score = 0;
     Scanner sc = new Scanner(System.in);
     ArrayList<String> verifiedUsername = new ArrayList<>(4);
@@ -37,10 +37,13 @@ class OnlineExamination{
     
     void updateUsername(String newName){
         verifiedUsername.add(userIndex,newName);
+        System.out.println("Successfully changed the username to "+newName);
     }
     
     void updatePassword(int newPass){
         verifiedPin[userIndex] = newPass;
+        System.out.println("Successfully changed the Password to "+newPass);
+
     }
     
     void MCQ(){
@@ -86,7 +89,8 @@ class OnlineExamination{
             public void run() {
                 System.out.println("Time's up! Automatically submitting the exam...");
                 System.out.println("Your Score in Exam is : " + score);
-//                System.exit(0);
+                System.exit(0);
+//                displayMenu();
             }
         }, EXAM_DURATION_SECONDS * 1000L);
 
@@ -105,12 +109,7 @@ class OnlineExamination{
         System.out.println("Your Score in Exam is : " + score);
     }
 
-}
-
-public class oibsip_task_4{
-    public static void main(String[] args) {
-        OnlineExamination oe1 = new OnlineExamination();
-        Scanner sc = new Scanner(System.in);
+    void displayMenu(){
         int choice;
 
         do {
@@ -130,23 +129,22 @@ public class oibsip_task_4{
                     System.out.println("Enter the new Username: ");
                     sc.nextLine();
                     String newName = sc.nextLine();
-                    oe1.updateUsername(newName);
+                    updateUsername(newName);
                     break;
 
                 case 2:
                     System.out.print("Enter new Password: ");
                     int newPass = sc.nextInt();
-                    oe1.updatePassword(newPass);
+                    updatePassword(newPass);
                     break;
 
                 case 3:
-                    oe1.MCQ();
+                    MCQ();
                     break;
 
                 case 4:
                     System.out.println("Successfully Logged Out!");
-                    break;
-
+                    return;
 
                 case 5:
                     System.out.println("Exit.");
@@ -157,5 +155,19 @@ public class oibsip_task_4{
                     break;
             }
         } while (choice != 5);
+    }
+
+}
+
+public class oibsip_task_4{
+    public static void main(String[] args) {
+        int choice;
+        Scanner sc = new Scanner(System.in);
+        do {
+            OnlineExamination oe = new OnlineExamination();
+            oe.displayMenu();
+            System.out.println("Do you want to start a new session? (1: Yes, 0: No) ");
+            choice = sc.nextInt();
+        }while(choice == 1);
     }
 }
